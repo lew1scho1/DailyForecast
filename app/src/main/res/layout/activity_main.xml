@@ -11,21 +11,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter your zipcode"
-        android:textSize="20sp"
+        android:textSize="@dimen/title_text_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518" />
+        app:layout_constraintVertical_bias="0.143" />
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="102dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="88dp"
+        android:layout_width="@dimen/zipcode_entry_icon"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/ic_baseline_location_on_24"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/title"
         app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,11 +34,10 @@
         android:id="@+id/zipcodeEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="8dp"
         android:hint="Enter zipcode"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="@+id/title"
-        app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
@@ -46,11 +45,23 @@
         android:id="@+id/enterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginTop="8dp"
         android:text="Submit Zipcode"
         app:layout_constraintEnd_toEndOf="@+id/title"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/zipcodeEditText" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/forcastList"
+        android:layout_width="379dp"
+        android:layout_height="384dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="#ababab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
