@@ -37,6 +37,7 @@
         android:layout_marginTop="8dp"
         android:hint="Enter zipcode"
         android:inputType="number"
+        android:text="11111"
         app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/title" />
