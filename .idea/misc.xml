@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Users/lew1s/AndroidStudioProjects/DailyForecast/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.2985" />
         <entry key="..\:/Users/lew1s/AndroidStudioProjects/DailyForecast/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/lew1s/AndroidStudioProjects/DailyForecast/app/src/main/res/layout/fragment_current_forecast.xml" value="0.35688405797101447" />
+        <entry key="..\:/Users/lew1s/AndroidStudioProjects/DailyForecast/app/src/main/res/layout/fragment_location_entry.xml" value="0.35688405797101447" />
         <entry key="..\:/Users/lew1s/AndroidStudioProjects/DailyForecast/app/src/main/res/layout/item_daily_forecast.xml" value="0.358695652173913" />
       </map>
     </option>

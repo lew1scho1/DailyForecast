@@ -15,8 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lewischoi.dailyforecast.databinding.ActivityMainBinding
 import com.lewischoi.dailyforecast.details.ForecastDetailsActivity
+import com.lewischoi.dailyforecast.location.LocationEntryFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AppNavigator {
 
     val binding by lazy { ActivityMainBinding.inflate(layoutInflater)}
 
@@ -29,36 +30,10 @@ class MainActivity : AppCompatActivity() {
 
         tempDisplaySettingManager = TempDisplaySettingManager(this)
 
-        val zipcodeEditText: EditText = binding.zipcodeEditText
-        val enterButton: Button = binding.enterButton
-
-
-        enterButton.setOnClickListener {
-
-            val zipcode: String = zipcodeEditText.text.toString()
-
-
-            if( zipcode.length != 5)    {
-                Toast.makeText(this, R.string.zipcode_entry_error, Toast.LENGTH_LONG).show()
-            }   else {
-                forecastRepository.loadForecast(zipcode)
-            }
-
-        }
-
-        val forecastList: RecyclerView = binding.forcastList
-        forecastList.layoutManager = LinearLayoutManager(this)
-        val dailyForecastAdapter = DailyForecastAdapter(tempDisplaySettingManager){   forecast ->
-            showForecastDetails(forecast)
-        }
-        forecastList.adapter = dailyForecastAdapter
-
-        val weeklyForecastObserver = Observer<List<DailyForecast>> {    forecastItems ->
-            // update our list adapter
-            dailyForecastAdapter.submitList(forecastItems)
-        }
-
-        forecastRepository.weeklyForecast.observe(this, weeklyForecastObserver)
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragmentContainer, LocationEntryFragment())
+            .commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -77,6 +52,12 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    override fun navigateToCurrentForecast(zipcode: String) {
+        forecastRepository.loadForecast(zipcode)
+
+    }
+
 
     private fun showForecastDetails(forecast: DailyForecast)   {
         val forecastDetailsIntent = Intent(this, ForecastDetailsActivity::class.java)
